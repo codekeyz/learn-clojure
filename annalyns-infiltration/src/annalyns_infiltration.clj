@@ -18,6 +18,5 @@
 (defn can-free-prisoner?
   "Returns true if prisoner can be freed, false otherwise."
   [knight-awake? archer-awake? prisoner-awake? dog-present?]
-  (cond (and dog-present? (not archer-awake?)) true
-        (and (not dog-present?) prisoner-awake? (not archer-awake?) (not knight-awake?)) true
-        :else false))
+  (or (and dog-present? (not archer-awake?))
+      (and (not dog-present?) prisoner-awake? (not archer-awake?) (not knight-awake?))))
